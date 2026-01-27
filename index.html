@@ -1,52 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vigília de Oração</title>
+  <title>Church Event</title>
+
   <style>
     body {
       margin: 0;
-      background: #0f0f0f;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: Arial, sans-serif;
     }
+
     .container {
-      max-width: 420px;
-      width: 100%;
-      padding: 16px;
       text-align: center;
+      max-width: 420px;
+      padding: 20px;
     }
+
     img {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 16px;
+      margin-bottom: 20px;
     }
-    a.button {
+
+    .button {
       display: block;
-      margin-top: 16px;
-      padding: 14px;
-      background: #1e6fff;
+      background: #2f6bff;
       color: white;
       text-decoration: none;
+      padding: 16px;
       font-size: 18px;
       font-weight: 600;
       border-radius: 10px;
     }
+
+    .button:hover {
+      background: #1f54d6;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
-  <img src="Flyer.jpg" alt="Flyer do evento" />
+    <img src="Flyer.jpg" alt="Event Flyer" />
 
-  <a class="button"
-     href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Its+Written+Event&dates=20260201T100000/20260201T120000&location=UCKG+HelpCentre+Newcastle&details=Its+Written+Events"
-     target="_blank">
-     + Add to calendar
-  </a>
-</div>
+    <a class="button" href="event.ics">
+      + Add to calendar
     </a>
   </div>
 </body>
