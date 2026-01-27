@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Event</title>
+  <title>Church Event</title>
 
   <style>
     body {
       margin: 0;
       background: #000;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* 👉 alinha no topo */
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+
       min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     }
 
     .container {
       width: 100%;
-      max-width: 420px;
+      max-width: 520px;
+
+      /* 👉 controla o quão para cima fica */
+      margin-top: 40px;
+
       padding: 16px;
       text-align: center;
     }
@@ -26,35 +33,43 @@
     img {
       width: 100%;
       height: auto;
+
+      /* 👉 visual bonito estilo card */
       border-radius: 16px;
-      display: block;
     }
 
     .button {
-      margin-top: 20px;
       display: block;
+      margin-top: 20px;
       padding: 16px;
-      background: #2f6bff;
+
+      background: #2563eb;
       color: #fff;
+
       text-decoration: none;
       font-size: 18px;
       font-weight: 600;
+
       border-radius: 12px;
     }
 
-    .button:hover {
-      background: #1e55e0;
+    .button:active {
+      opacity: 0.85;
     }
   </style>
 </head>
 
 <body>
   <div class="container">
+
+    <!-- 🔁 TROCA O FLYER APENAS SUBSTITUINDO O ARQUIVO -->
     <img src="Flyer.jpg" alt="Event flyer" />
 
+    <!-- 📅 FUNCIONA GOOGLE + APPLE -->
     <a class="button" href="event.ics">
       + Add to calendar
     </a>
+
   </div>
 </body>
 </html>
