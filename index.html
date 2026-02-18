@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Good Friday - UCKG</title>
+  <title>Church Event</title>
 
   <style>
     body {
@@ -50,23 +50,8 @@
 
 <body>
   <div class="container">
-    <!-- Flyer atual -->
-    <img src="goodfridayflyer.jpg" alt="Good Friday flyer" />
-    
-    <!-- Botão limpo -->
-    <a class="button" href="event.ics" id="calendar-btn">+ Add to calendar</a>
+    <img src="goodfridayflyer.jpg" alt="Event flyer" />
+    <a class="button" href="event.ics">+ Add to calendar</a>
   </div>
-
-  <!-- CONTADOR INVISÍVEL -->
-  <script src="https://unpkg.com/@digitdesign/countapi-js@1.0.5/dist/countapi.min.js"></script>
-  <script>
-    // Conta NFC taps (pessoas que viram)
-    countapi.hit('uckg', 'good-friday-nfc-taps');
-    
-    // Conta Add to calendar
-    document.getElementById('calendar-btn').addEventListener('click', function() {
-      countapi.hit('uckg', 'good-friday-adds');
-    });
-  </script>
 </body>
 </html>
