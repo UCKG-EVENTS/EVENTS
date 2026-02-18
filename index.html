@@ -30,13 +30,6 @@
       border-radius: 16px;
     }
 
-    .tap-counter {
-      margin: 20px 0;
-      font-size: 20px;
-      color: #fff;
-      font-weight: 600;
-    }
-
     .button {
       display: block;
       margin-top: 20px;
@@ -57,36 +50,23 @@
 
 <body>
   <div class="container">
-
-    <!-- Flyer atual -->
+    <!-- Flyer atual mantido -->
     <img src="goodfridayflyer.jpg" alt="Good Friday flyer" />
-
-    <!-- 👆 CONTADOR DE TAPS (atualiza em tempo real) -->
-    <div class="tap-counter">
-      👆 Taps totais: <span id="tap-count">0</span>
-    </div>
-
-    <!-- 📅 BOTÃO COM CONTADOR AUTOMÁTICO -->
-    <a class="button" href="event.ics" onclick="countTap();">
-      + Add to calendar
-    </a>
-
+    
+    <!-- Botão normal (contador roda invisível) -->
+    <a class="button" href="event.ics" id="calendar-btn">+ Add to calendar</a>
   </div>
 
-  <!-- CountAPI - Real-time counter -->
+  <!-- CONTADOR INVISÍVEL - roda em background -->
   <script src="https://unpkg.com/@digitdesign/countapi-js@1.0.5/dist/countapi.min.js"></script>
   <script>
-    // Carrega contador atual
-    countapi.get('uckg', 'good-friday-taps').then(function(result) {
-      document.getElementById('tap-count').innerHTML = result.value || 0;
+    // Conta TODO NFC tap (acesso à página)
+    countapi.hit('uckg', 'good-friday-pageviews');
+    
+    // Conta só quem clicou "Add to calendar"
+    document.getElementById('calendar-btn').addEventListener('click', function() {
+      countapi.hit('uckg', 'good-friday-adds');
     });
-
-    // Incrementa quando clicam no botão
-    function countTap() {
-      countapi.hit('uckg', 'good-friday-taps').then(function(result) {
-        document.getElementById('tap-count').innerHTML = result.value;
-      });
-    }
   </script>
 </body>
 </html>
