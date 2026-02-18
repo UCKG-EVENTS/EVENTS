@@ -3,29 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Church Event</title>
+  <title>Good Friday - UCKG</title>
 
   <style>
     body {
       margin: 0;
       background: #000;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-
-      /* 👉 alinha no topo */
       display: flex;
       justify-content: center;
       align-items: flex-start;
-
       min-height: 100vh;
     }
 
     .container {
       width: 100%;
       max-width: 520px;
-
-      /* 👉 controla o quão para cima fica */
       margin-top: 40px;
-
       padding: 16px;
       text-align: center;
     }
@@ -33,23 +27,25 @@
     img {
       width: 100%;
       height: auto;
-
-      /* 👉 visual bonito estilo card */
       border-radius: 16px;
+    }
+
+    .tap-counter {
+      margin: 20px 0;
+      font-size: 20px;
+      color: #fff;
+      font-weight: 600;
     }
 
     .button {
       display: block;
       margin-top: 20px;
       padding: 16px;
-
       background: #2563eb;
       color: #fff;
-
       text-decoration: none;
       font-size: 18px;
       font-weight: 600;
-
       border-radius: 12px;
     }
 
@@ -62,14 +58,35 @@
 <body>
   <div class="container">
 
-    <!-- 🔁 TROCA O FLYER APENAS SUBSTITUINDO O ARQUIVO -->
-    <img src="goodfridayflyer.jpg" alt="Event flyer" />
+    <!-- Flyer atual -->
+    <img src="goodfridayflyer.jpg" alt="Good Friday flyer" />
 
-    <!-- 📅 FUNCIONA GOOGLE + APPLE -->
-    <a class="button" href="event.ics">
+    <!-- 👆 CONTADOR DE TAPS (atualiza em tempo real) -->
+    <div class="tap-counter">
+      👆 Taps totais: <span id="tap-count">0</span>
+    </div>
+
+    <!-- 📅 BOTÃO COM CONTADOR AUTOMÁTICO -->
+    <a class="button" href="event.ics" onclick="countTap();">
       + Add to calendar
     </a>
 
   </div>
+
+  <!-- CountAPI - Real-time counter -->
+  <script src="https://unpkg.com/@digitdesign/countapi-js@1.0.5/dist/countapi.min.js"></script>
+  <script>
+    // Carrega contador atual
+    countapi.get('uckg', 'good-friday-taps').then(function(result) {
+      document.getElementById('tap-count').innerHTML = result.value || 0;
+    });
+
+    // Incrementa quando clicam no botão
+    function countTap() {
+      countapi.hit('uckg', 'good-friday-taps').then(function(result) {
+        document.getElementById('tap-count').innerHTML = result.value;
+      });
+    }
+  </script>
 </body>
 </html>
