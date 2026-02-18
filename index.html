@@ -50,20 +50,20 @@
 
 <body>
   <div class="container">
-    <!-- Flyer atual mantido -->
+    <!-- Flyer atual -->
     <img src="goodfridayflyer.jpg" alt="Good Friday flyer" />
     
-    <!-- Botão normal (contador roda invisível) -->
+    <!-- Botão limpo -->
     <a class="button" href="event.ics" id="calendar-btn">+ Add to calendar</a>
   </div>
 
-  <!-- CONTADOR INVISÍVEL - roda em background -->
+  <!-- CONTADOR INVISÍVEL -->
   <script src="https://unpkg.com/@digitdesign/countapi-js@1.0.5/dist/countapi.min.js"></script>
   <script>
-    // Conta TODO NFC tap (acesso à página)
-    countapi.hit('uckg', 'good-friday-pageviews');
+    // Conta NFC taps (pessoas que viram)
+    countapi.hit('uckg', 'good-friday-nfc-taps');
     
-    // Conta só quem clicou "Add to calendar"
+    // Conta Add to calendar
     document.getElementById('calendar-btn').addEventListener('click', function() {
       countapi.hit('uckg', 'good-friday-adds');
     });
